@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <!-- <a-box position="-1 0.5 -3" rotation="0 45 0" color="#FFFFFF"></a-box>
+      <a-box position="-1 0.5 -3" rotation="45 45 45" color="#111111"></a-box>
+
+      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E" animation="property: position; to: 0 8 -5; dur: 2000; easing: linear; loop: true"></a-sphere>
+      
+
+      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+      
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+      <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
+        <a-sphere position="5 0 0" color="mediumseagreen"></a-sphere>
+      </a-entity> -->
+      <a-sky color="#ECECEC"></a-sky>
+      <!-- Como se llama esto?? (Cubo 1) -->
+      <a-entity id="cubo-raro">
+      <a-box position="-1 1.5 -3" rotation="0 45 0" color="#111111" animation="property: rotation; to: 0 360 0; dur: 7000; easing: linear; loop: true;" ></a-box>
+      <a-box position="-1 1.5 -3" rotation="45 45 45" color="#111111" animation="property: rotation; to: 45 -360 45; dur: 7000; easing: linear; loop: true;"></a-box>
+      </a-entity>
+
+        <!-- Cubo 2 -->
+        <!-- Este cubo son 2 cubos los cuales uno debe expandirse cuando el otro se encoja y viceversa -->
+        <a-entity id="teseracto">
+            <a-box position="-1 0.5 -3" rotation="45 45 45" color="#111111" height="1" width="1" depth="1"  animation="property: scale; to: 0.5 0.5 0.5; dur: 5000; easing: linear; loop: true;"></a-box>
+            <a-box position="-1 0.5 -3" rotation="45 45 45" color="#111111" height="0.5" width="0.5" depth="0.5"  animation="property: scale; to: 1 1 1; dur: 5000; easing: linear; loop: true;"></a-box>
+
+                
+        </a-entity>
+
+
+      <!-- Ground -->
+        <a-plane position="0 0 0" rotation="-90 0 0" width="100" height="100" color="#7BC8A4"></a-plane>
+
+
+    </a-scene>
+  </body>
+</html>
