@@ -2,30 +2,29 @@
 <html>
   <head>
     <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v$npm_package_version/dist/aframe-physics-system.min.js"></script>
+    <script src="/my-app.js"></script>
   </head>
   <body>
-    
-    <a-scene>
-<<<<<<< HEAD
+    <a-scene physics="debug: true">
       <!-- ASSETS -->
       <a-assets>
         <a-asset-item id="garden" src="/garden/scene.gltf"></a-asset-item>
-      <a-assets-item id="sky" src="/sky/scene.gltf"></a-assets-item>
-      </a-assets>  
+        <a-assets-item id="sky" src="/sky/scene.gltf"></a-assets-item>
+      </a-assets>
 
-      <a-entity gltf-model="#garden" light="type: ambient;"></a-entity>
+      <!-- Piso sólido -->
+      <a-plane static-body position="0 -0.1 0" rotation="-90 0 0" width="100" height="100" color="#7BC8A4"></a-plane>
 
-      
-      <a-sky color="#ECECEC" light="type: ambient;"></a-sky>
+      <a-entity gltf-model="#garden" light="type: ambient;" static-body></a-entity>
 
-      <a-camera position="8 1.2 13" rotation="0 0 0"></a-camera>
-=======
+      <!-- Esfera con gravedad -->
+      <a-sphere color="#004DFF" radius="0.5" position="8 2 10" dynamic-body></a-sphere>
 
->>>>>>> e0fdd194d56b28e505d832c5e316a32dbcd11b4d
+      <!-- Cielo independiente sin interacción con la gravedad -->
+      <a-sky src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg"></a-sky>
 
-      <a-entity position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#sky"></a-entity>
-      <!-- Buenop, tienes tarea, hay que arreglar el cielo, agregar el piso y hacerlo solido asi al momento de insertar un objeto con gravedad este no atraviese el piso -->
-      <!-- <a-sky src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg"></a-sky> -->
+      <a-camera position="8 1.2 12" rotation="0 0 0"></a-camera>
     </a-scene>
   </body>
 </html>
