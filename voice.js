@@ -1,14 +1,11 @@
+require('aframe');
+require('aframe-aabb-collider-component');
 // my-app.js
 document.addEventListener('DOMContentLoaded', function () {
   // Verifica si el navegador soporta la Web Speech API
   if ('speechSynthesis' in window) {
     // Crear un mensaje de voz
     var msg = new SpeechSynthesisUtterance('This is a Park');
-
-    // Configurar opciones si es necesario
-    // msg.volume = 1;
-    // msg.rate = 1;
-    // msg.pitch = 1;
 
     // Configurar un retraso de 2 segundos (2000 milisegundos)
     setTimeout(function () {
@@ -20,15 +17,22 @@ document.addEventListener('DOMContentLoaded', function () {
       subtitleContainer.style.left = '50%';
       subtitleContainer.style.transform = 'translateX(-50%)';
       subtitleContainer.style.padding = '20px';
-      subtitleContainer.style.fontSize = '24px'; // Tamaño de letra más grande
-      subtitleContainer.style.color = '#008000'; // Color de letra más oscuro
+      subtitleContainer.style.fontSize = '24px'; 
+      subtitleContainer.style.color = '#00FF59'; 
       subtitleContainer.style.textAlign = 'center';
-      subtitleContainer.innerText = 'This is a Park / Este es un Parque HOLA';
+      subtitleContainer.innerText = 'This is a Park / Este es un Parque';
       document.body.appendChild(subtitleContainer);
+
+      // Configurar un temporizador para ocultar el subtítulo después de 5 segundos (5000 milisegundos)
+      var hideTimer = setTimeout(function () {
+        subtitleContainer.style.display = 'none';
+      }, 5000); // Duración de 5 segundos
 
       // Configurar un evento de teclado para ocultar el subtítulo al presionar cualquier tecla
       window.addEventListener('keydown', function () {
         subtitleContainer.style.display = 'none';
+        // Cancelar el temporizador si se oculta manualmente
+        clearTimeout(hideTimer);
       });
 
       // Hablar el mensaje
