@@ -55,13 +55,53 @@
       <a-sphere material="color:#AA0000; roughness:0.1;" radius="0.5" position="8 2 10"
       event-set__enter="_event: mouseenter; material.color:#FF0000;"
       event-set__leave="_event: mouseleave; material.color:#AF00AA;"
-      event-set__tarcol="_event: click; material.color:#00AAFF;" 
+      event-set__tarcol="_event: click; material.color:#00AAFF;"
+      event-set__enter="_event: mouseenter; material.color:#FF0000;" 
       dynamic-body="linearDamping:0.5;
                     angularDamping:0.3"
                     bounce> <!-- Agrega el componente bounce aquí -->
-    </a-sphere>
+      </a-sphere>
 
-    <a-sphere position="8 2 8" radius="1" color="#EF2D5E" shadow ammo-body ammo-shape bounce></a-sphere>
+      <a-sphere
+      position="8 2 8"
+      id="red_ball"
+      data-color="red"
+      radius="0.5"
+      material="color:#FF0000; roughness:0.1;"         
+      shadow
+      ammo-body
+      ammo-shape
+      bounce
+      color-speech
+    ></a-sphere>
+    
+    <a-sphere
+      position="9 2 8"
+      id="green_ball"
+      data-color="green"
+      radius="0.5"
+      material="color:#00FF00; roughness:0.1;"
+      shadow
+      ammo-body
+      ammo-shape
+      bounce
+      color-speech
+    ></a-sphere>
+    
+    <a-sphere
+      position="10 2 8"
+      id="blue_ball"
+      data-color="blue" 
+      radius="0.5"
+      material="color:#0000FF; roughness:0.1;"
+      shadow
+      ammo-body
+      ammo-shape
+      bounce
+      color-speech
+    ></a-sphere>
+    
+    
 
 
       <a-sky src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg"></a-sky>
@@ -74,8 +114,8 @@
         rotation="-90 0 -45"
       ></a-entity>
 
-      <a-camera position="8 1.6 12" rotation="0 0 0"></a-camera>
-      <a-entity progressive-controls position="8 1.6 12"></a-entity>
+      <a-camera position="8 1.2 12" rotation="0 0 0"></a-camera>
+      <a-entity progressive-controls position="8 1.2 12"></a-entity>
     </a-scene>
 
 
