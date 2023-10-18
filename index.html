@@ -7,50 +7,48 @@
     <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
     <script src="https://unpkg.com/super-hands@2.1.0/dist/super-hands.min.js"></script>
-    <script src="aframe.min.js"></script>
-    <script src="my-app.js"></script>
-
 
     <script>
       AFRAME.registerComponent("bounce", {
         init: function() {
-          this.direction = 0.02; // Ajusta la velocidad del rebote
+          this.direction = 0.02;
           this.position = new THREE.Vector3();
           this.position.copy(this.el.object3D.position);
           setTimeout(() => {
             this.ready = true;
           }, 3000);
         },
-
         tick: function() {
           if (!this.ready) return;
           var position = this.el.object3D.position.y;
           if (position <= 0) {
-            this.direction = Math.abs(this.direction); // Cambia la dirección en el límite inferior
+            this.direction = Math.abs(this.direction);
           } else if (position >= 2) {
-            this.direction = -Math.abs(this.direction); // Cambia la dirección en el límite superior
+            this.direction = -Math.abs(this.direction);
           }
           this.el.object3D.position.set(this.position.x, position + this.direction, this.position.z);
         }
       });
-      // ... (otros componentes) ...
     </script>
-
-
   </head>
   <body>
     <a-scene physics="gravity: -9.8; driver: ammo; debug: true" renderer="antialias: true" restitution="0.5">
 
-    
-        <a-assets>
-          <a-asset-item id="garden" src="/garden/scene.gltf"></a-asset-item>
-          <a-assets-item id="sky" src="/sky/scene.gltf"></a-assets-item>
-        </a-assets>
+      <a-assets>
+        <a-asset-item id="garden" src="/garden/scene.gltf"></a-asset-item>
+        <a-assets-item id="sky" src="/sky/scene.gltf"></a-assets-item>
+      </a-assets>
+
+      <!-- Plano de límites -->
+      <a-plane static-body width="33" height="37" rotation="-90 0 0" color="#009D71" position="7 1 -3" material="" geometry="primitive: plane" nav-mesh></a-plane>
       
-
-      <!-- <a-entity id="sunlight-3" light="distance: 5; intensity: 5" position="0 8 0"></a-entity> -->
-
       <a-entity gltf-model="#garden" static-body></a-entity>
+
+      <a-entity id="rig" position="8 1.2 12" movement-controls="constrainToNavMesh: true;">
+        <a-entity camera look-controls>
+          <a-cursor></a-cursor>
+        </a-entity>
+      </a-entity>
 
       <a-sphere material="color:#AA0000; roughness:0.1;" radius="0.5" position="8 2 10"
       event-set__enter="_event: mouseenter; material.color:#FF0000;"
@@ -100,6 +98,51 @@
       bounce
       color-speech
     ></a-sphere>
+
+
+    <!-- Cubos -->
+
+    <a-box
+    position="10 2 6"
+    id="blue_ball"
+    data-color="blue" 
+    radius="0.5"
+    material="color:#0000FF; roughness:0.1;"
+    shadow
+    ammo-body
+    ammo-shape
+    bounce
+    color-speech
+    ></a-box>
+
+    <a-box
+    position="9 2 6"
+    id="blue_ball"
+    data-color="blue" 
+    radius="0.5"
+    material="color:#00FF00; roughness:0.1;"
+    shadow
+    ammo-body
+    ammo-shape
+    bounce
+    color-speech
+    ></a-box>
+
+    <a-box
+    position="8 2 6"
+    id="blue_ball"
+    data-color="blue" 
+    radius="0.5"
+    material="color:#FF0000; roughness:0.1;"
+    shadow
+    ammo-body
+    ammo-shape
+    bounce
+    color-speech
+    ></a-box>
+
+
+    <!-- Piramides -->
     
     
 
@@ -114,8 +157,8 @@
         rotation="-90 0 -45"
       ></a-entity>
 
-      <a-camera position="8 1.2 12" rotation="0 0 0"></a-camera>
-      <a-entity progressive-controls position="8 1.2 12"></a-entity>
+      <!-- <a-camera position="8 1.2 12" rotation="0 0 0"></a-camera> -->
+      <!-- <a-entity progressive-controls position="0 1.4 0"></a-entity> -->
     </a-scene>
 
 
