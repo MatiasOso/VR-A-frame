@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="https://unpkg.com/super-hands@2.1.0/dist/super-hands.min.js"></script>
+  </head>
+  <body>
+    <a-scene physics="gravity: -9.8">
+      <!-- ASSETS -->
+      <a-sphere color="#004DFF" radius="0.5" position="8 2 10" dynamic-body></a-sphere>
+      
+      
+
+      <a-camera position="8 1.2 12" rotation="0 0 0"></a-camera>
+      <a-plane color="#FE243E"scale="50 50 1" repeat="5 5 1" rotation="-90 0 0" static-body></a-plane>
+      <!-- <a-entity position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#sky"></a-entity> -->
+      <!-- Buenop, tienes tarea, hay que arreglar el cielo, agregar el piso y hacerlo solido asi al momento de insertar un objeto con gravedad este no atraviese el piso -->
+    </a-scene>
+  </body>
+</html>
