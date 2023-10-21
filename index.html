@@ -40,7 +40,7 @@
       </a-assets>
 
       <!-- Plano de límites -->
-      <a-plane static-body width="33" height="37" rotation="-90 0 0" color="#009D71" position="7 1 -3" material="" geometry="primitive: plane" nav-mesh></a-plane>
+      <a-plane static-body width="33" height="37" rotation="-90 0 0" color="#009D71" position="7 -0.1 -3" material="" geometry="primitive: plane" nav-mesh></a-plane>
       
       <a-entity gltf-model="#garden" static-body></a-entity>
 
@@ -143,7 +143,14 @@
 
 
     <!-- Piramides -->
-    
+
+
+    <!-- Bush -->
+    <a-entity id="bush" position="1 0.2 9" material="opacity: 0;" geometry="primitive: sphere; segmentsHeight: 12; segmentsWidth: 24" scale="1.1 1.1 1.1"></a-entity>
+    <a-entity id="bush" position="1.3 0.2 10" material="opacity: 0;" geometry="primitive: sphere; segmentsHeight: 12; segmentsWidth: 24" scale="1.1 1.1 1.1"></a-entity>
+    <a-entity id="bush" position="-1 0.2 9" material="opacity: 0;" geometry="primitive: sphere; segmentsHeight: 12; segmentsWidth: 24" scale="1.1 1.1 1.1"></a-entity>
+    <a-entity id="bush" position="-1 0.2 9" material="opacity: 1;" geometry="primitive: sphere; segmentsHeight: 12; segmentsWidth: 24" scale="1.1 1.1 1.1"></a-entity>
+    <a-entity id="bush" position="-1 0.2 9" material="opacity: 1;" geometry="primitive: sphere; segmentsHeight: 12; segmentsWidth: 24" scale="1.1 1.1 1.1"></a-entity>
     
 
 
@@ -164,4 +171,5 @@
 
 
   </body>
+  <!-- <script src="my-app.js"></script> -->
 </html>
