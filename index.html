@@ -40,12 +40,12 @@
       </a-assets>
 
       <!-- Plano de límites -->
-      <a-plane static-body width="33" height="37" rotation="-90 0 0" color="#009D71" position="7 -0.1 -3" material="" geometry="primitive: plane" nav-mesh></a-plane>
+      <a-plane static-body width="33" height="37" rotation="-90 0 0" color="#009D71" position="7 1.2 -3" material="" geometry="primitive: plane" nav-mesh></a-plane>
       
       <a-entity gltf-model="#garden" static-body></a-entity>
 
       <a-entity id="rig" position="8 1.2 12" movement-controls="constrainToNavMesh: true;">
-        <a-entity camera look-controls>
+        <a-entity camera look-controls="pointerLockEnabled: true">
           <a-cursor></a-cursor>
         </a-entity>
       </a-entity>
@@ -61,9 +61,11 @@
       </a-sphere>
 
       <a-sphere
+      class="shape-sphere"
       position="8 2 8"
       id="red_ball"
       data-color="red"
+      data-shape="ball"
       radius="0.5"
       material="color:#FF0000; roughness:0.1;"         
       shadow
@@ -74,9 +76,11 @@
     ></a-sphere>
     
     <a-sphere
+      class="shape-sphere"
       position="9 2 8"
       id="green_ball"
       data-color="green"
+      data-shape="ball"
       radius="0.5"
       material="color:#00FF00; roughness:0.1;"
       shadow
@@ -87,9 +91,11 @@
     ></a-sphere>
     
     <a-sphere
+      class="shape-sphere"
       position="10 2 8"
       id="blue_ball"
       data-color="blue" 
+      data-shape="ball"
       radius="0.5"
       material="color:#0000FF; roughness:0.1;"
       shadow
@@ -103,9 +109,11 @@
     <!-- Cubos -->
 
     <a-box
+    class="shape-box"
     position="10 2 6"
-    id="blue_ball"
+    id="blue_cube"
     data-color="blue" 
+    data-shape="cube" 
     radius="0.5"
     material="color:#0000FF; roughness:0.1;"
     shadow
@@ -116,9 +124,11 @@
     ></a-box>
 
     <a-box
+    class="shape-box"
     position="9 2 6"
-    id="blue_ball"
-    data-color="blue" 
+    id="green_cube"
+    data-color="green" 
+    data-shape="cube"
     radius="0.5"
     material="color:#00FF00; roughness:0.1;"
     shadow
@@ -129,9 +139,11 @@
     ></a-box>
 
     <a-box
+    class="shape-box"
     position="8 2 6"
-    id="blue_ball"
-    data-color="blue" 
+    id="red_cube"
+    data-color="red" 
+    data-shape="cube"
     radius="0.5"
     material="color:#FF0000; roughness:0.1;"
     shadow
@@ -143,15 +155,63 @@
 
 
     <!-- Piramides -->
+    <a-cone
+    class="shape-cone"
+    position="2 2 0"
+    id="blue_cone"
+    data-color="purple" 
+    data-shape="cone"
+    radius="0.5"
+    material="color:#C100FF; roughness:0.1;"
+    shadow
+    ammo-body
+    ammo-shape
+    bounce
+    color-speech
+    ></a-cone>
+
+    <a-cone
+    class="shape-cone"
+    position="4 2 0"
+    id="blue_cone"
+    data-color="yellow" 
+    data-shape="cone"
+    radius="0.5"
+    material="color:#FFFF00; roughness:0.1;"
+    shadow
+    ammo-body
+    ammo-shape
+    bounce
+    color-speech
+    ></a-cone>
+
+    <a-cone
+    class="shape-cone"
+    position="6 2 0"
+    id="blue_cone"
+    data-color="light blue" 
+    data-shape="cone"
+    radius="0.5"
+    material="color:#00E1FF; roughness:0.1;"
+    shadow
+    ammo-body
+    ammo-shape
+    bounce
+    color-speech
+    ></a-cone>
 
 
     <!-- Bush -->
-    <a-entity id="bush" position="1 0.2 9" material="opacity: 0;" geometry="primitive: sphere; segmentsHeight: 12; segmentsWidth: 24" scale="1.1 1.1 1.1"></a-entity>
-    <a-entity id="bush" position="1.3 0.2 10" material="opacity: 0;" geometry="primitive: sphere; segmentsHeight: 12; segmentsWidth: 24" scale="1.1 1.1 1.1"></a-entity>
-    <a-entity id="bush" position="-1 0.2 9" material="opacity: 0;" geometry="primitive: sphere; segmentsHeight: 12; segmentsWidth: 24" scale="1.1 1.1 1.1"></a-entity>
-    <a-entity id="bush" position="-1 0.2 9" material="opacity: 1;" geometry="primitive: sphere; segmentsHeight: 12; segmentsWidth: 24" scale="1.1 1.1 1.1"></a-entity>
-    <a-entity id="bush" position="-1 0.2 9" material="opacity: 1;" geometry="primitive: sphere; segmentsHeight: 12; segmentsWidth: 24" scale="1.1 1.1 1.1"></a-entity>
-    
+<!-- Bush -->
+<div id="bush">
+  <a-entity class="bush" data-shape="bush" id="bush1" position="1 0.2 9" material="opacity: 0;" geometry="primitive: sphere; segmentsHeight: 12; segmentsWidth: 24" scale="1.1 1.1 1.1"></a-entity>
+  <a-entity class="bush" data-shape="bush" id="bush2" position="1.3 0.2 10" material="opacity: 0;" geometry="primitive: sphere; segmentsHeight: 12; segmentsWidth: 24" scale="1.1 1.1 1.1"></a-entity>
+  <a-entity class="bush" data-shape="bush" id="bush3" position="-1 0.2 9" material="opacity: 0;" geometry="primitive: sphere; segmentsHeight: 12; segmentsWidth: 24" scale="1.1 1.1 1.1"></a-entity>
+  <a-entity class="bush" data-shape="bush" id="bush4" position="-1 0.2 9" material="opacity: 0;" geometry="primitive: sphere; segmentsHeight: 12; segmentsWidth: 24" scale="1.1 1.1 1.1"></a-entity>
+  <a-entity class="bush" data-shape="bush" id="bush5" position="-1 0.2 10.7" material="opacity: 0;" geometry="primitive: sphere; segmentsHeight: 12; segmentsWidth: 24" scale="1.1 1.1 1.1"></a-entity>
+  <a-entity class="bush" data-shape="bush" id="bush6" position="-2.1 0.2 10.4" material="opacity: 0;" geometry="primitive: sphere; segmentsHeight: 12; segmentsWidth: 24" scale="1.1 1.1 1.1"></a-entity>
+</div>
+
 
 
       <a-sky src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg"></a-sky>
@@ -171,5 +231,5 @@
 
 
   </body>
-  <!-- <script src="my-app.js"></script> -->
+  <script src="my-app.js"></script>
 </html>
