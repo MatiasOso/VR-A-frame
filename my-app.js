@@ -5,9 +5,13 @@ document.addEventListener('DOMContentLoaded', function () {
     function speakBushName(bushName) {
       var bushMsg = new SpeechSynthesisUtterance(bushName);
       window.speechSynthesis.speak(bushMsg);
-      
     }
 
+    function findColorNameById(color) {
+      // Puedes implementar tu lógica específica para asignar colores a IDs aquí
+      // Por ahora, simplemente usaremos el valor del atributo data-color como el nombre del color
+      return color;
+    }
     // Función para hablar tanto el color como la forma
     function speakObjectDetails(element) {
       var colorName = findColorNameById(element.getAttribute('data-color'));
@@ -51,11 +55,31 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
 
-    function findColorNameById(color) {
-      // Puedes implementar tu lógica específica para asignar colores a IDs aquí
-      // Por ahora, simplemente usaremos el valor del atributo data-color como el nombre del color
-      return color;
+    // Función para seleccionar objetos al azar y mostrarlos como objetivos
+    function selectRandomObjects(objects, count) {
+      var shuffledObjects = objects.slice();
+      for (var i = shuffledObjects.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        [shuffledObjects[i], shuffledObjects[j]] = [shuffledObjects[j], shuffledObjects[i]];
+      }
+      return shuffledObjects.slice(0, count);
     }
+
+    // Lista de objetos disponibles
+    objects = ['blue ball','red ball','green ball','blue cube','red cube','green cube','purple cone','yellow cone','light blue cone'];
+
+    // Selecciona tres objetos al azar
+    var randomObjects = selectRandomObjects(objects, 3);
+
+    // Mostrar los objetivos en la div "text-overlay"
+    var textOverlay = document.querySelector('.text-overlay');
+    textOverlay.innerHTML = '';
+
+    randomObjects.forEach(function (object) {
+      var paragraph = document.createElement('p');
+      paragraph.textContent = 'Encuentra: ' + object;
+      textOverlay.appendChild(paragraph);
+    });
 
     // Crear un mensaje de voz inicial
     var initialMsg = new SpeechSynthesisUtterance('This is a Park');

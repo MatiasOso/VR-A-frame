@@ -1,0 +1,47 @@
+
+.text-overlay {
+    background: black;
+    color: white;
+    width: 40%;
+    position: absolute;
+    z-index: 10;
+    font-size: 20px;
+    font-family: arial;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.text-overlay p {
+  margin: 0.2em 1em;
+}
+/* Estilo para el color rojo */
+.red-text {
+    color: #FF0000;
+  }
+  
+  /* Estilo para el color verde */
+  .green-text {
+    color: #00FF00;
+  }
+  
+  /* Estilo para el color azul */
+  .blue-text {
+    color: #0000FF;
+  }
+  
+  /* Estilo para el color morado */
+  .purple-text {
+    color: #C100FF;
+  }
+  
+  /* Estilo para el color amarillo */
+  .yellow-text {
+    color: #FFFF00;
+  }
+  
+  /* Estilo para el color celeste */
+  .light-blue-text {
+    color: #00E1FF;
+  }
+  

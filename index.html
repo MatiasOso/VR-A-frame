@@ -7,7 +7,8 @@
     <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
     <script src="https://unpkg.com/super-hands@2.1.0/dist/super-hands.min.js"></script>
-
+    <script src="my-app.js"></script>
+    <link rel="stylesheet" href="style.css">
     <script>
       AFRAME.registerComponent("bounce", {
         init: function() {
@@ -32,8 +33,10 @@
     </script>
   </head>
   <body>
+    <div class="text-overlay">
+      <!-- Here goes the objects the kid needs to find -->
+    </div>
     <a-scene physics="gravity: -9.8; driver: ammo; debug: true" renderer="antialias: true" restitution="0.5">
-
       <a-assets>
         <a-asset-item id="garden" src="/garden/scene.gltf"></a-asset-item>
         <a-assets-item id="sky" src="/sky/scene.gltf"></a-assets-item>
@@ -45,7 +48,7 @@
       <a-entity gltf-model="#garden" static-body></a-entity>
 
       <a-entity id="rig" position="8 1.2 12" movement-controls="constrainToNavMesh: true;">
-        <a-entity camera look-controls="pointerLockEnabled: true">
+        <a-entity camera look-controls="pointerLockEnabled: true " raycaster="objects: .clickable">
           <a-cursor></a-cursor>
         </a-entity>
       </a-entity>
@@ -62,7 +65,7 @@
 
       <a-sphere
       class="shape-sphere"
-      position="8 2 8"
+      position="8 2 2"
       id="red_ball"
       data-color="red"
       data-shape="ball"
@@ -74,11 +77,13 @@
       
       color-speech
       dynamic-body="linearDamping: 0.5; angularDamping: 0.3"
-    ></a-sphere>
+    >
+    <span class="red-text">Red Ball</span>
+    </a-sphere>
     
     <a-sphere
       class="shape-sphere"
-      position="9 2 8"
+      position="12 2 8"
       id="green_ball"
       data-color="green"
       data-shape="ball"
@@ -90,11 +95,13 @@
       
       color-speech
       dynamic-body="linearDamping: 0.5; angularDamping: 0.3"
-    ></a-sphere>
+    >
+    <span class="green-text">Green Ball</span>
+    </a-sphere>
     
     <a-sphere
       class="shape-sphere"
-      position="10 2 8"
+      position="-7 2 5"
       id="blue_ball"
       data-color="blue" 
       data-shape="ball"
@@ -106,14 +113,16 @@
       
       color-speech
       dynamic-body="linearDamping: 0.5; angularDamping: 0.3"
-    ></a-sphere>
+    >
+    <span class="blue-text">Blue Ball</span>
+  </a-sphere>
 
 
     <!-- Cubos -->
 
     <a-box
     class="shape-box"
-    position="10 2 6"
+    position="10 1.2 -9"
     id="blue_cube"
     data-color="blue" 
     data-shape="cube" 
@@ -129,7 +138,7 @@
 
     <a-box
     class="shape-box"
-    position="9 2 6"
+    position="1.3 0.2 9"
     id="green_cube"
     data-color="green" 
     data-shape="cube"
@@ -145,7 +154,7 @@
 
     <a-box
     class="shape-box"
-    position="8 2 6"
+    position="16 0.5 12"
     id="red_cube"
     data-color="red" 
     data-shape="cube"
@@ -163,7 +172,7 @@
     <!-- Piramides -->
     <a-cone
     class="shape-cone"
-    position="2 2 0"
+    position="2 0.5 0"
     id="blue_cone"
     data-color="purple" 
     data-shape="cone"
@@ -179,7 +188,7 @@
 
     <a-cone
     class="shape-cone"
-    position="4 2 0"
+    position="20 0.5 -2"
     id="blue_cone"
     data-color="yellow" 
     data-shape="cone"
@@ -195,7 +204,7 @@
 
     <a-cone
     class="shape-cone"
-    position="6 2 0"
+    position="20wd 0.5 -15"
     id="blue_cone"
     data-color="light blue" 
     data-shape="cone"
@@ -211,7 +220,7 @@
 
 
     <!-- Bush -->
-<!-- Bush -->
+<!-- Bush 
 <div id="bush">
   <a-entity class="bush" data-shape="bush" id="bush1" position="1 0.2 9" material="opacity: 0;" geometry="primitive: sphere; segmentsHeight: 12; segmentsWidth: 24" scale="1.1 1.1 1.1"></a-entity>
   <a-entity class="bush" data-shape="bush" id="bush2" position="1.3 0.2 10" material="opacity: 0;" geometry="primitive: sphere; segmentsHeight: 12; segmentsWidth: 24" scale="1.1 1.1 1.1"></a-entity>
@@ -220,10 +229,10 @@
   <a-entity class="bush" data-shape="bush" id="bush5" position="-1 0.2 10.7" material="opacity: 0;" geometry="primitive: sphere; segmentsHeight: 12; segmentsWidth: 24" scale="1.1 1.1 1.1"></a-entity>
   <a-entity class="bush" data-shape="bush" id="bush6" position="-2.1 0.2 10.4" material="opacity: 0;" geometry="primitive: sphere; segmentsHeight: 12; segmentsWidth: 24" scale="1.1 1.1 1.1"></a-entity>
 </div>
+-->
 
 
-
-      <a-sky src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg"></a-sky>
+      <!-- <a-sky src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg"></a-sky> -->
 
       <a-entity
         id="ocean"
@@ -240,5 +249,5 @@
 
 
   </body>
-  <script src="my-app.js"></script>
+  
 </html>
