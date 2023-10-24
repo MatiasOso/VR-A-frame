@@ -6,10 +6,14 @@ document.addEventListener('DOMContentLoaded', function () {
       var bushMsg = new SpeechSynthesisUtterance(bushName);
       window.speechSynthesis.speak(bushMsg);
     }
-
+    function findBushById(id){
+      return id;
+    }
+    function SpeakBush(element){
+      var bush = findBushById(element.getAttribute('id'));
+      var detailsMsg = new SpeechSynthesisUtterance(id);
+    }
     function findColorNameById(color) {
-      // Puedes implementar tu lógica específica para asignar colores a IDs aquí
-      // Por ahora, simplemente usaremos el valor del atributo data-color como el nombre del color
       return color;
     }
     // Función para hablar tanto el color como la forma
@@ -83,11 +87,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Crear un mensaje de voz inicial
     var initialMsg = new SpeechSynthesisUtterance('This is a Park');
-
-    // Configurar opciones si es necesario
-    // initialMsg.volume = 1;
-    // initialMsg.rate = 1;
-    // initialMsg.pitch = 1;
 
     // Configurar un retraso de 2 segundos (2000 milisegundos)
     setTimeout(function () {

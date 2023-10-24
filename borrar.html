@@ -3,18 +3,64 @@
   <head>
     <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
     <script src="https://unpkg.com/super-hands@2.1.0/dist/super-hands.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v$npm_package_version/dist/aframe-physics-system.min.js"></script>
+    <script src="/my-app.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+    <script src="https://unpkg.com/super-hands@2.1.0/dist/super-hands.min.js"></script>
   </head>
   <body>
-    <a-scene physics="gravity: -9.8">
-      <!-- ASSETS -->
-      <a-sphere color="#004DFF" radius="0.5" position="8 2 10" dynamic-body></a-sphere>
-      
-      
+  <a-scene>
+    <a-assets>
+      <a-asset-item id="minecraft" src="/Minecraft/scene.gltf"></a-asset-item>
+      <a-assets-item id="sky" src="/sky/scene.gltf"></a-assets-item>
+    </a-assets>
+    <a-plane static-body width="33" height="37" rotation="-90 0 0" color="#009D71" position="7 1.2 -3" material="" geometry="primitive: plane" nav-mesh></a-plane>
 
-      <a-camera position="8 1.2 12" rotation="0 0 0"></a-camera>
-      <a-plane color="#FE243E"scale="50 50 1" repeat="5 5 1" rotation="-90 0 0" static-body></a-plane>
-      <!-- <a-entity position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#sky"></a-entity> -->
-      <!-- Buenop, tienes tarea, hay que arreglar el cielo, agregar el piso y hacerlo solido asi al momento de insertar un objeto con gravedad este no atraviese el piso -->
+    <a-entity id="rig" position="8 1.2 10" movement-controls="constrainToNavMesh: false;">
+      <a-entity camera look-controls="pointerLockEnabled: true" raycaster="objects: .clickable">
+        <a-cursor></a-cursor>
+      </a-entity>
+    </a-entity>
+    
+    
+    <a-entity gltf-model="#minecraft" scale="10 10 10"static-body></a-entity>
+
+    <a-sphere
+    class="shape-sphere"
+    position="8 2 2"
+    id="red_ball"
+    data-color="red"
+    data-shape="ball"
+    radius="0.5"
+    material="color:#FF0000; roughness:0.1;"         
+    shadow
+    ammo-body
+    ammo-shape
+    
+    color-speech
+    dynamic-body="linearDamping: 0.5; angularDamping: 0.3"
+  >
+  </a-sphere>
+  
+  <a-sphere
+    class="shape-sphere"
+    position="12 2 8"
+    id="green_ball"
+    data-color="green"
+    data-shape="ball"
+    radius="0.5"
+    material="color:#00FF00; roughness:0.1;"
+    shadow
+    ammo-body
+    ammo-shape
+    
+    color-speech
+    dynamic-body="linearDamping: 0.5; angularDamping: 0.3"
+  >
+  </a-sphere>
+  <a-sky src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg"></a-sky>
+
     </a-scene>
   </body>
 </html>
